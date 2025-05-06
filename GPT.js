@@ -127,5 +127,6 @@
       this.initMain();
     }
   }
-
+customElements.define("com-heikohemminger-sap-gptwidget", Widget);
+})();
   // Angepasster Widget
