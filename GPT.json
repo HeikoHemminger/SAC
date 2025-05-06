@@ -6,7 +6,7 @@
   "newInstancePrefix": "GptWidget",
   "vendor": "Heiko Hemminger",
   "eula": "",
-  "license": "MIT",
+  "license": "",
   
   "webcomponents": [
     {
