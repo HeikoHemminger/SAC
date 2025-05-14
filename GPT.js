@@ -67,6 +67,7 @@
     async connectedCallback() {
       this.initMain();
     }
+    console.log("Constructor");
 
     async initMain() {
       const generatedText = this.shadowRoot.getElementById("generated-text");
