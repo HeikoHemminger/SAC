@@ -131,6 +131,7 @@
       }
     }
     setPrompt(prompt) {
+      console.log("setPrompt aufgerufen mit:", prompt);
       this._props.prompt = prompt;
       const promptInput = this.shadowRoot?.getElementById("prompt-input");
       if (promptInput) {
