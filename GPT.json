@@ -34,7 +34,17 @@
             "description": "Result Max Length",
             "type": "integer",
             "default": 1024
-        }
+        },
+        "output": {
+            "description": "Output Result from ChatGPT",
+            "type": "string",
+            "default": ""
+        },
+        "prompt": {
+            "description": "Input text for ChatGPT",
+            "type": "string",
+            "default": ""
+        },
     },
     "methods": {
         "setApiKey": {
@@ -68,6 +78,22 @@
             "returnType": "integer",
             "description": "Return Result Max Length",
             "body": "return this.max_tokens;"
+        },
+	"setPrompt": {
+            "description": "Set Prompt for ChatGPT",
+            "parameters": [
+                {
+                    "name": "prompt",
+                    "type": "string",
+                    "description": "Prompt Value ChatGPT"
+                }
+            ],
+            "body": "this.prompt = prompt;"
+        },
+    	"getOutput": {
+            "returnType": "string",
+            "description": "Return Output",
+            "body": "return this.output;"
         }
     },
     "events": {
