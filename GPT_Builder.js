@@ -135,6 +135,9 @@
       get max_tokens() {
          return this._shadowRoot.getElementById("builder_max_tokens").value;
       }
+      // get output() {
+      //    return this._shadowRoot.getElementById("builder_max_tokens").value;
+      // }
    }
 
    customElements.define("com-heikohemminger-sap-gptwidget-builder", GptWidgetBuilderPanel);
