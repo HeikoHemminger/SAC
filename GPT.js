@@ -125,6 +125,10 @@
 
     onCustomWidgetAfterUpdate(changedProperties) {
       this.initMain();
+      
+      if (changedProperties.prompt !== undefined) {
+        this.setPrompt(changedProperties.prompt);
+      }
     }
     setPrompt(prompt) {
       this._props.prompt = prompt;
