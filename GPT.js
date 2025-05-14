@@ -126,6 +126,13 @@
     onCustomWidgetAfterUpdate(changedProperties) {
       this.initMain();
     }
+    setPrompt(prompt) {
+      this._props.prompt = prompt;
+      const promptInput = this.shadowRoot?.getElementById("prompt-input");
+      if (promptInput) {
+        promptInput.value = prompt;
+      }
+    }
   }
 customElements.define("com-heikohemminger-sap-gptwidget", Widget);
 })();
