@@ -62,12 +62,14 @@
       let shadowRoot = this.attachShadow({ mode: "open" });
       shadowRoot.appendChild(template.content.cloneNode(true));
       this._props = {};
+         
+      console.log("Constructor");
     }
 
     async connectedCallback() {
       this.initMain();
     }
-    console.log("Constructor");
+
 
     async initMain() {
       const generatedText = this.shadowRoot.getElementById("generated-text");
