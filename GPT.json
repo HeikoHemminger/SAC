@@ -33,7 +33,7 @@
         "max_tokens": {
             "description": "Result Max Length",
             "type": "integer",
-            "default": 1024
+            "default": 10
         },
         "output": {
             "description": "Output Result from ChatGPT",
