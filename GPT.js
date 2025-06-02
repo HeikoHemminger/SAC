@@ -212,7 +212,7 @@
       this._props.prompt = newPromptValue; // Internen Wert aktualisieren
   
       // Direkter Zugriff auf das prompt-input-Feld und Wert setzen
-      console.log(this.promptInput);
+      console.log(promptInput);
       const promptInput = this.shadowRoot?.getElementById("prompt-input");
       console.log(this.promptInput);
       
