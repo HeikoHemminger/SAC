@@ -99,12 +99,17 @@
     }
 
 
-    initMain() {
+     async initMain() {
         console.log("initMain aufgerufen. Hole DOM-Elemente und hänge Listener an.");
         // Hole die Referenzen zu den DOM-Elementen und speichere sie auf der Instanz.
         this.generatedText = this.shadowRoot.getElementById("generated-text");
         this.promptInput = this.shadowRoot.getElementById("prompt-input");
         this.generateButton = this.shadowRoot.getElementById("generate-button");
+
+        console.log("initMain: promptInput-Referenz:", this.promptInput); // Log 8: Prüfe, ob es null ist!
+        console.log("initMain: generatedText-Referenz:", this.generatedText); // Log 9
+        console.log("initMain: generateButton-Referenz:", this.generateButton); // Log 10
+
 
         // Initialisiere generatedText nur, wenn es existiert
         if (this.generatedText) {
@@ -165,6 +170,9 @@
             });
             this.generateButton._hasClickListener = true; // Markiere, dass Listener angehängt wurde
             console.log("Generate-Button Listener hinzugefügt.");
+          
+            console.log("initMain abgeschlossen."); // Log 12
+          
         } else if (!this.generateButton) {
             console.warn("initMain: generate-button nicht gefunden.");
         }
