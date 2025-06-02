@@ -71,7 +71,7 @@
       this.generatedText = null;
       this.generateButton = null;
          
-      console.log("Constructor abgeschlossen");
+      console.log("Constructor abgeschlossen!");
       
       // console.log(this.promptInput);
     }
