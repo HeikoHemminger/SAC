@@ -129,22 +129,31 @@
     onCustomWidgetAfterUpdate(changedProperties) {
       this.initMain();
       
-      if (changedProperties.prompt !== undefined) {
-        this.setPrompt(changedProperties.prompt);
-      }
-      console.log("onCustomWidgetAfterUpdate aufgerufen.");
-      // Stellen Sie sicher, dass das ShadowRoot existiert, bevor Sie versuchen, Elemente zu manipulieren
-      if (this.shadowRoot) {
-          const promptInput = this.shadowRoot.getElementById("prompt-input");
-          if (promptInput && promptInput.value !== this._props.prompt) { // Nur aktualisieren, wenn sich der Wert geändert hat
-              promptInput.value = this._props.prompt;
-              console.log("Prompt-Input-Feld aktualisiert zu:", this._props.prompt);
-          }
-      }
+      // if (changedProperties.prompt !== undefined) {
+      //   this.setPrompt(changedProperties.prompt);
+      // }
+      // console.log("onCustomWidgetAfterUpdate aufgerufen.");
+      // // Stellen Sie sicher, dass das ShadowRoot existiert, bevor Sie versuchen, Elemente zu manipulieren
+      // if (this.shadowRoot) {
+      //     const promptInput = this.shadowRoot.getElementById("prompt-input");
+      //     if (promptInput && promptInput.value !== this._props.prompt) { // Nur aktualisieren, wenn sich der Wert geändert hat
+      //         promptInput.value = this._props.prompt;
+      //         console.log("Prompt-Input-Feld aktualisiert zu:", this._props.prompt);
+      //     }
+      // }
     }
-    setPrompt(prompt) {
-      console.log("setPrompt aufgerufen mit:", prompt);
-      this._props.prompt = prompt;
+    setPrompt(newPromptValue) {
+        console.log("setPrompt aufgerufen mit:", newPromptValue);
+        this._props.prompt = newPromptValue; // Internen Wert aktualisieren
+    
+        // Direkter Zugriff auf das prompt-input-Feld und Wert setzen
+        const promptInput = this.shadowRoot?.getElementById("prompt-input");
+        if (promptInput) {
+            promptInput.value = newPromptValue;
+            console.log("Prompt-Input-Feld in setPrompt aktualisiert zu:", newPromptValue);
+        } else {
+            console.warn("Input-Feld 'prompt-input' nicht gefunden im Shadow DOM. setPrompt kann Wert nicht setzen.");
+        }
     }
   }
 customElements.define("com-heikohemminger-sap-gptwidget", Widget);
