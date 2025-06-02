@@ -72,6 +72,10 @@
 
     async connectedCallback() {
       this.initMain();
+      if (this.promptInput) { 
+          this.promptInput.value = this._props.prompt || "";
+          console.log("Initialer Prompt-Wert in connectedCallback gesetzt:", this.promptInput.value);
+      }
     }
 
 
