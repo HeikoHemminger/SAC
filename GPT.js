@@ -191,29 +191,24 @@
     // Wird von SAC aufgerufen, wenn sich Properties ändern (z.B. Designer-Panel)
     onCustomWidgetAfterUpdate(changedProperties) {
       console.log("onCustomWidgetAfterUpdate aufgerufen mit changedProperties:", changedProperties); 
-      
-      // this.initMain();
-      
-      // if (changedProperties.prompt !== undefined) {
-      //   this.setPrompt(changedProperties.prompt);
-      // }
-      // console.log("onCustomWidgetAfterUpdate aufgerufen.");
-      // // Stellen Sie sicher, dass das ShadowRoot existiert, bevor Sie versuchen, Elemente zu manipulieren
-      // if (this.shadowRoot) {
-      //     const promptInput = this.shadowRoot.getElementById("prompt-input");
-      //     if (promptInput && promptInput.value !== this._props.prompt) { // Nur aktualisieren, wenn sich der Wert geändert hat
-      //         promptInput.value = this._props.prompt;
-      //         console.log("Prompt-Input-Feld aktualisiert zu:", this._props.prompt);
-      //     }
-      // }
+
+       if (changedProperties.prompt !== undefined) {
+          // Verwende die im connectedCallback/initMain gespeicherte Referenz (this.promptInput)
+          // Diese Referenz ist nach der Initialisierung des Widgets (durch connectedCallback/initMain) immer verfügbar.
+          if (this.promptInput) {
+              this.promptInput.value = this._props.prompt; // Aktualisiere den Wert des DOM-Elements
+              console.log("Prompt-Input-Feld in onCustomWidgetAfterUpdate aktualisiert zu:", this._props.prompt);
+          } else {
+              // Dieser Log sollte nur im Falle eines Fehlers erscheinen, da promptInput in initMain gesetzt wird.
+              console.warn("onCustomWidgetAfterUpdate: promptInput Referenz nicht verfügbar. Element nicht gefunden.");
+          }
+      }
     }
     setPrompt(newPromptValue) {
       console.log("setPrompt aufgerufen mit:", newPromptValue);
       this._props.prompt = newPromptValue; // Internen Wert aktualisieren
   
       // Direkter Zugriff auf das prompt-input-Feld und Wert setzen
-      console.log(promptInput);
-      const promptInput = this.shadowRoot?.getElementById("prompt-input");
       console.log(this.promptInput);
       
       if (this.promptInput) {
