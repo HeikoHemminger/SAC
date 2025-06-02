@@ -189,19 +189,22 @@
       // }
     }
     setPrompt(newPromptValue) {
-        console.log("setPrompt aufgerufen mit:", newPromptValue);
-        this._props.prompt = newPromptValue; // Internen Wert aktualisieren
-    
-        // Direkter Zugriff auf das prompt-input-Feld und Wert setzen
-        const promptInput = this.shadowRoot?.getElementById("prompt-input");
-        if (this.promptInput) {
-            this.promptInput.value = newPromptValue;
-            console.log("Prompt-Input-Feld in setPrompt direkt aktualisiert zu:", newPromptValue);
-        } else {
-            // Dieser Log wird kommen, wenn setPrompt zu früh im Skript aufgerufen wird,
-            // bevor connectedCallback/initMain gelaufen ist und die Referenzen gesetzt hat.
-            console.warn("setPrompt: promptInput Referenz nicht verfügbar. Element nicht gefunden. Wurde connectedCallback/initMain ausgeführt?");
-        }
+      console.log("setPrompt aufgerufen mit:", newPromptValue);
+      this._props.prompt = newPromptValue; // Internen Wert aktualisieren
+  
+      // Direkter Zugriff auf das prompt-input-Feld und Wert setzen
+      console.log(this.promptInput);
+      const promptInput = this.shadowRoot?.getElementById("prompt-input");
+      console.log(this.promptInput);
+      
+      if (this.promptInput) {
+        this.promptInput.value = newPromptValue;
+          console.log("Prompt-Input-Feld in setPrompt direkt aktualisiert zu:", newPromptValue);
+      } else {
+          // Dieser Log wird kommen, wenn setPrompt zu früh im Skript aufgerufen wird,
+          // bevor connectedCallback/initMain gelaufen ist und die Referenzen gesetzt hat.
+          console.warn("setPrompt: promptInput Referenz nicht verfügbar. Element nicht gefunden. Wurde connectedCallback/initMain ausgeführt?");
+      }
     }
   }
 customElements.define("com-heikohemminger-sap-gptwidget", Widget);
