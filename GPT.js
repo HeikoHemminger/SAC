@@ -61,7 +61,11 @@
       super();
       let shadowRoot = this.attachShadow({ mode: "open" });
       shadowRoot.appendChild(template.content.cloneNode(true));
-      this._props = {};
+      this._props = {
+        apiKey: "",
+        max_tokens: 50,
+        prompt: ""
+      };
          
       console.log("Constructor");
     }
