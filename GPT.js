@@ -73,7 +73,7 @@
          
       console.log("Constructor");
       
-      console.log(this.promptInput);
+      // console.log(this.promptInput);
     }
 
     connectedCallback() {
