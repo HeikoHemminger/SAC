@@ -152,7 +152,7 @@
             promptInput.value = newPromptValue;
             console.log("Prompt-Input-Feld in setPrompt aktualisiert zu:", newPromptValue);
         } else {
-            console.warn("Input-Feld 'prompt-input' nicht gefunden im Shadow DOM. setPrompt kann Wert nicht setzen.");
+            console.log("Input-Feld 'prompt-input' nicht gefunden im Shadow DOM. setPrompt kann Wert nicht setzen.");
         }
     }
   }
