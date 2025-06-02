@@ -71,14 +71,25 @@
       this.generatedText = null;
       this.generateButton = null;
          
-      console.log("Constructor");
+      console.log("Constructor abgeschlossen");
       
       // console.log(this.promptInput);
     }
 
     connectedCallback() {
-      console.log("connectedCallback aufgerufen. Shadow DOM sollte bereit sein.");
-      this.initMain();
+      console.log("connectedCallback gestartet."); // Log 2
+      console.log("this.shadowRoot ist:", this.shadowRoot); // Prüfe, ob shadowRoot hier null ist
+
+   
+      // Rufe initMain auf, wenn das Shadow DOM definitiv existiert
+      if (this.shadowRoot) {
+          this.initMain();
+          console.log("initMain aus connectedCallback aufgerufen."); // Log 3
+      } else {
+          console.error("Fehler: connectedCallback: this.shadowRoot ist null!"); // Das wäre ein schwerwiegender Fehler
+      }
+
+      
       if (this.promptInput) { 
           this.promptInput.value = this._props.prompt || "";
           console.log("Initialer Prompt-Wert in connectedCallback gesetzt:", this.promptInput.value);
