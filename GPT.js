@@ -205,11 +205,8 @@
       }
     }
     setPrompt(newPromptValue) {
-      console.log("setPrompt aufgerufen mit:", newPromptValue);
+      console.log("setPrompt aufgerufen mit......:", newPromptValue);
       this._props.prompt = newPromptValue; // Internen Wert aktualisieren
-  
-      // Direkter Zugriff auf das prompt-input-Feld und Wert setzen
-      console.log(this.promptInput);
       
       if (this.promptInput) {
         this.promptInput.value = newPromptValue;
