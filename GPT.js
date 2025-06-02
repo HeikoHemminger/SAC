@@ -72,6 +72,8 @@
       this.generateButton = null;
          
       console.log("Constructor");
+      
+      console.log(this.promptInput);
     }
 
     connectedCallback() {
