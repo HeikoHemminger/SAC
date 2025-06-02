@@ -132,14 +132,19 @@
       if (changedProperties.prompt !== undefined) {
         this.setPrompt(changedProperties.prompt);
       }
+      console.log("onCustomWidgetAfterUpdate aufgerufen.");
+      // Stellen Sie sicher, dass das ShadowRoot existiert, bevor Sie versuchen, Elemente zu manipulieren
+      if (this.shadowRoot) {
+          const promptInput = this.shadowRoot.getElementById("prompt-input");
+          if (promptInput && promptInput.value !== this._props.prompt) { // Nur aktualisieren, wenn sich der Wert geändert hat
+              promptInput.value = this._props.prompt;
+              console.log("Prompt-Input-Feld aktualisiert zu:", this._props.prompt);
+          }
+      }
     }
     setPrompt(prompt) {
       console.log("setPrompt aufgerufen mit:", prompt);
       this._props.prompt = prompt;
-      const promptInput = this.shadowRoot?.getElementById("prompt-input");
-      if (promptInput) {
-        promptInput.value = prompt;
-      }
     }
   }
 customElements.define("com-heikohemminger-sap-gptwidget", Widget);
