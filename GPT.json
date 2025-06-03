@@ -12,7 +12,7 @@
 	{
 	  "kind": "main",
 	  "tag": "com-heikohemminger-sap-gptwidget",
-	  "url": "https:\/\/cdn.jsdelivr.net\/gh\/HeikoHemminger\/SAC@3969769152de6802719c1b50c3d67f85dbae5d16\/GPT.js",
+	  "url": "https:\/\/cdn.jsdelivr.net\/gh\/HeikoHemminger\/SAC@f9a0349b204c46049d6d9f4770120c303d0d06f9\/GPT.js",
 	  "integrity": "",
 	  "ignoreIntegrity": true
 	},
