@@ -87,7 +87,7 @@
                     "type": "string",
                     "description": "Prompt Value ChatGPT"
                 }
-            ],
+            ]
         },
     	"getOutput": {
             "returnType": "string",
