@@ -153,18 +153,21 @@
                         const message = data.choices[0].message.content;
                         if (this.generatedText) {
                             this.generatedText.value = message.trim();
+                            this._props.output = message.trim();
                         }
                     } else {
                         const error = await response.json();
                         alert("OpenAI Error: " + error.error.message);
                         if (this.generatedText) {
                             this.generatedText.value = "";
+                            this._props.output = "";
                         }
                     }
                 } catch (err) {
                     alert("Network error: " + err.message);
                     if (this.generatedText) {
                         this.generatedText.value = "";
+                        this._props.output = "";
                     }
                 }
             });
@@ -210,12 +213,16 @@
       
       if (this.promptInput) {
         this.promptInput.value = newPromptValue;
-          console.log("Prompt-Input-Feld in setPrompt direkt aktualisiert zu:", newPromptValue);
+        console.log("Prompt-Input-Feld in setPrompt direkt aktualisiert zu:", newPromptValue);
       } else {
-          // Dieser Log wird kommen, wenn setPrompt zu früh im Skript aufgerufen wird,
-          // bevor connectedCallback/initMain gelaufen ist und die Referenzen gesetzt hat.
-          console.warn("setPrompt: promptInput Referenz nicht verfügbar. Element nicht gefunden. Wurde connectedCallback/initMain ausgeführt?");
+        // Dieser Log wird kommen, wenn setPrompt zu früh im Skript aufgerufen wird,
+        // bevor connectedCallback/initMain gelaufen ist und die Referenzen gesetzt hat.
+        console.warn("setPrompt: promptInput Referenz nicht verfügbar. Element nicht gefunden. Wurde connectedCallback/initMain ausgeführt?");
       }
+    }
+    getOutput() {
+      console.log("getOutput aufgerufen. Rückgabewert:", this._props.output);
+      return this._props.output;
     }
   }
 customElements.define("com-heikohemminger-sap-gptwidget", Widget);
