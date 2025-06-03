@@ -190,7 +190,7 @@
 
     // Wird von SAC aufgerufen, wenn sich Properties ändern (z.B. Designer-Panel)
     onCustomWidgetAfterUpdate(changedProperties) {
-      console.log("onCustomWidgetAfterUpdate aufgerufen mit changedProperties:", changedProperties); 
+      console.log("onCustomWidgetAfterUpdate aufgerufen mit changedProperties:....", changedProperties); 
 
        if (changedProperties.prompt !== undefined) {
           // Verwende die im connectedCallback/initMain gespeicherte Referenz (this.promptInput)
