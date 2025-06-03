@@ -92,8 +92,7 @@
     	"getOutput": {
             "returnType": "string",
             "description": "Return Output",
-            "body": "return this.output;"
-        }
+          }
     },
     "events": {
         "onClick": {
