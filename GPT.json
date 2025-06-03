@@ -91,7 +91,7 @@
         },
     	"getOutput": {
             "returnType": "string",
-            "description": "Return Output",
+            "description": "Return Output"
           }
     },
     "events": {
