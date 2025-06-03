@@ -19,7 +19,7 @@
 	{
 	  "kind": "builder",
 	  "tag": "com-heikohemminger-sap-gptwidget-builder",
-	  "url": "https:\/\/cdn.jsdelivr.net\/gh\/HeikoHemminger\/SAC@main\/GPT_Builder.js",
+	  "url": "https:\/\/cdn.jsdelivr.net\/gh\/HeikoHemminger\/SAC@3969769152de6802719c1b50c3d67f85dbae5d16\/GPT_Builder.js",
 	  "integrity": "",
 	  "ignoreIntegrity": true
 	}
